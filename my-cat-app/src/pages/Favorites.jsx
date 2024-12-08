@@ -19,7 +19,7 @@ const Favorites = () => {
       <h1 className="text-2xl font-bold">My Favorite Fluffy Criminals</h1>
       {isLoading && <PageLoadingSpinner />}
       {favorites?.length === 0 && <p>No Favorite Criminals Yet!</p>}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-4">
         {favorites?.map((favorite) => (
             <CatImageCardRemove
               key={favorite.id}

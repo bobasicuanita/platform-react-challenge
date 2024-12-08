@@ -47,7 +47,7 @@ const BreedsList = ({ breeds = [] }) => {
     <>
       <ul className="grid grid-flow-row auto-rows-max grid-cols-[repeat(auto-fill,minmax(140px,1fr))] gap-4">
         {breeds.map((breed) => (
-          <li onClick={() => onOpenModal(breed.id)} key={breed.id} className="flex items-center gap-4 p-6 rounded-xl shadow-md w-full mb-4 cursor-pointer" >
+          <li onClick={() => onOpenModal(breed.id)} key={breed.id} className="flex items-center bg-blue-300 gap-4 p-6 rounded-xl shadow-md w-full mb-4 cursor-pointer" >
             {breed.name}
           </li>
         ))}

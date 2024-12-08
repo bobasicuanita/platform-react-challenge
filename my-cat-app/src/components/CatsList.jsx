@@ -34,7 +34,7 @@ const CatsList = (
 
   return (
     <>
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-0 mb-8 min-h-screen">
+      <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-0 mb-8 min-h-screen">
         {catsList?.map((cat, index) => (
           <CatImageCard
             key={index}

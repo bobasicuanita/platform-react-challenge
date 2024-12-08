@@ -38,7 +38,7 @@ const CatImageCard = (
       <img
         src={cat.url}
         alt="Cat"
-        className="w-full h-96 object-cover"
+        className="w-full h-64 sm:h-96 object-cover"
         onClick={() => onImageClick(cat.id)}
       />
       <button

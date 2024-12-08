@@ -19,7 +19,7 @@ const Breeds = () => {
 
   useEffect(() => {
     if (breedId) {
-      const breed = breeds.find((item) => item.id === breedId.slice(1));
+      const breed = breeds?.find((item) => item.id === breedId.slice(1));
       setBreedDetail(breed);
     }
   }, [breedId]);

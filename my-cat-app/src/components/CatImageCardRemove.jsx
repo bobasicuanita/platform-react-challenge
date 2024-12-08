@@ -29,7 +29,7 @@ const CatImageCardRemove = ({ favorite = {} }) => {
       <img
         src={favorite.image.url}
         alt="Cat"
-        className="w-full h-96 object-cover"
+        className="w-full h-64 sm:h-96 object-cover"
       />
       <button onClick={() => onRemove(favorite.id)} className="absolute top-5 right-4 p-2 bg-white opacity-50 text-white rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200">
         {isLoading && (
