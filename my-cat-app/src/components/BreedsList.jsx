@@ -31,12 +31,12 @@ const BreedsList = ({ breeds = [] }) => {
     },
   );
     
-  const onOpenModal = (id) => {
+  const handleOpenModal = (id) => {
     setIsOpen(!isOpen);
     setSelectedBreed(id);
   };
 
-  const onCloseModal = () => {
+  const handleCloseModal = () => {
     setIsOpen(!isOpen);
     setSelectedBreed(null);
     setCatImages(null);
@@ -68,14 +68,14 @@ const BreedsList = ({ breeds = [] }) => {
     <>
       <ul className="grid grid-flow-row auto-rows-max grid-cols-[repeat(auto-fill,minmax(140px,1fr))] gap-4">
         {breeds.map((breed) => (
-          <li onClick={() => onOpenModal(breed.id)} key={breed.id} className="flex items-center bg-blue-300 gap-4 p-6 rounded-xl shadow-md w-full mb-4 cursor-pointer" >
+          <li key={breed.name} onClick={() => handleOpenModal(breed.id)} className="flex items-center bg-blue-300 gap-4 p-6 rounded-xl shadow-md w-full mb-4 cursor-pointer" >
             {breed.name}
           </li>
         ))}
       </ul>
       <Modal
         isOpen={isOpen}
-        onClose={onCloseModal}
+        onClose={handleCloseModal}
         title="Breed Info"
         type="breeds"
         isLoading={isLoading}

@@ -18,7 +18,7 @@ const Modal = (
   if (!isOpen) return null;
   const { isCopied, error, copyToClipboard } = useCopyToClipboard();
 
-  const onBackdropClick = (e) => {
+  const handleBackdropClick = (e) => {
     if (e.target === e.currentTarget) {
       onClose();
     };
@@ -27,7 +27,7 @@ const Modal = (
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
-      onClick={onBackdropClick}
+      onClick={handleBackdropClick}
     >
       <div className="bg-white rounded-lg shadow-lg w-full max-w-5xl">
         {isLoading ? <PageLoadingSpinner /> : (

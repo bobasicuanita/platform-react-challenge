@@ -8,6 +8,7 @@ import { ErrorProvider, useErrorContext } from "./context/ErrorContext";
 import { FavoriteProvider } from "./context/FavoriteContext";
 import ErrorTooltip from './components/ErrorTooltip';
 import Header from './components/Header';
+import NotFound from './pages/NotFound';
 
 const queryClient = new QueryClient();
 
@@ -36,6 +37,7 @@ function App() {
                 <Route path="/breeds" element={<Breeds />} />
                 <Route path="/favorites" element={<Favorites />} />
                 <Route path="/breeds/:breedId" element={<Breeds />} />
+                <Route path="*" element={<NotFound />} />
               </Routes>
             </div>
           </BrowserRouter>

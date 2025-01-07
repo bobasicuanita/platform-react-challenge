@@ -18,17 +18,17 @@ const CatsList = (
   const [selectedCatImage, setSelectedCatImage] = useState({});
   const { likedCats, setLikedCats } = useFavoriteContext();
     
-  const onLoadMore = () => {
+  const handleLoadMore = () => {
     setLimit((prevLimit) => prevLimit + 10);
   };
     
-  const onImageClick = (id) => {
+  const handleImageClick = (id) => {
     setIsOpen(!isOpen);
     const clickedCatImage = catImages.find((image) => image.id === id);
     setSelectedCatImage(clickedCatImage);
   };
     
-  const onCloseModal = () => {
+  const handleCloseModal = () => {
     setIsOpen(!isOpen);
   };
 
@@ -39,7 +39,7 @@ const CatsList = (
           <CatImage
             key={index}
             image={image}
-            onImageClick={onImageClick}
+            onImageClick={handleImageClick}
             setLikedCats={setLikedCats}
             likedCats={likedCats}
           />
@@ -47,11 +47,11 @@ const CatsList = (
       </div>
       {isFetching && <PageLoadingSpinner />}
       <div className="flex items-center justify-center mt-8">
-        <LoadMore onLoadMore={onLoadMore} />
+        <LoadMore onLoadMore={handleLoadMore} />
       </div>
       <Modal
         isOpen={isOpen}
-        onClose={onCloseModal}
+        onClose={handleCloseModal}
         title={selectedCatImage?.breeds?.[0]?.name ?? 'Unknown breed'}
         parameter={selectedCatImage?.url}
         type="cats"

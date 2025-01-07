@@ -28,7 +28,7 @@ const CatImage = (
 
   const { isLoading } = addFavoriteCat;
 
-  const onFavorite = () => {
+  const handleFavorite = () => {
     if (likedCats.includes(image.id)) return;
     addFavoriteCat.mutate(image.id);
   };
@@ -37,23 +37,25 @@ const CatImage = (
     <div className={`relative group ${isInModal ? 'px-4' : 'cursor-pointer'}`}>
       <img
         src={image.url}
-        alt={image.name}
+        alt={`Cat Image ${image.id}`}
         className="w-full h-64 sm:h-96 object-cover"
         onClick={() => onImageClick(image.id)}
       />
       <button
-        onClick={onFavorite}
+        onClick={handleFavorite}
         className={`absolute top-5 ${isInModal ? 'right-8' : 'right-4'} p-2 bg-white opacity-50 text-white rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200`}>
           {!likedCats.includes(image.id) && !isLoading && (
             <IconHeart
               size={24} 
               color="black"
+              data-testid={`heart-icon-${image.id}`}
             />
           )}
           {likedCats.includes(image.id) && !isLoading && (
             <IconHeartFilled
               size={24} 
               color="black"
+              data-testid={`heart-filled-icon-${image.id}`}
             />
           )}
           {isLoading && (

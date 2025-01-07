@@ -1,37 +1,42 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { MemoryRouter } from 'react-router-dom';
 import Header from '../components/Header';
 import { headerMenu } from '../constants';
 
 const renderWithRouter = (ui) => {
-  return render(<BrowserRouter>{ui}</BrowserRouter>);
+  return render(
+    <MemoryRouter>
+      <Header />
+    </MemoryRouter>
+  );
 };
 
-describe('Header Component Ciew', () => {
+describe('Header Component View', () => {
   it('renders the header title', () => {
-    renderWithRouter(<Header />);
+    renderWithRouter();
     expect(screen.getByText("Interpol's Most Wanted Cats")).toBeInTheDocument();
   });
 
   it('renders navigation links', () => {
-    renderWithRouter(<Header />);
+    renderWithRouter();
     headerMenu.forEach((item) => {
       expect(screen.getByText(item.label)).toBeInTheDocument();
     });
   });
 
   it('shows the menu button on mobile', () => {
-    renderWithRouter(<Header />);
+    renderWithRouter();
     expect(screen.getByRole('button')).toBeInTheDocument();
   });
 
   it('applies active class to the link', () => {
-    renderWithRouter(<Header />);
+    renderWithRouter();
     const activeLink = headerMenu[0];
     const linkElement = screen.getByText(activeLink.label);
 
-    fireEvent.click(linkElement);
+    userEvent.click(linkElement);
 
     expect(linkElement).toHaveClass('font-bold text-white');
   });

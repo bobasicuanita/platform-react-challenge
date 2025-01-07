@@ -36,7 +36,7 @@ CatInfo.propTypes = {
   origin: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   temperament: PropTypes.string.isRequired,
-  wikipediaUrl: PropTypes.string,
+  wikipediaUrl: PropTypes.string.isRequired,
   breedId: PropTypes.string,
 };
 
